@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		D5AE31B61B2CE3B60040BD66 /* Streng.h in Headers */ = {isa = PBXBuildFile; fileRef = D5AE31B51B2CE3B60040BD66 /* Streng.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5AE31BD1B2CE3B60040BD66 /* Streng.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5AE31B21B2CE3B60040BD66 /* Streng.framework */; };
-		D5AE31C21B2CE3B60040BD66 /* StrengTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AE31C11B2CE3B60040BD66 /* StrengTests.swift */; };
+		D5AE31CD1B2CE3EF0040BD66 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AE31CC1B2CE3EF0040BD66 /* StringExtensions.swift */; };
+		D5AE31CF1B2CE4050040BD66 /* CharacterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AE31CE1B2CE4050040BD66 /* CharacterExtensions.swift */; };
+		D5AE31D11B2CE5060040BD66 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AE31D01B2CE5060040BD66 /* StringTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +29,10 @@
 		D5AE31B51B2CE3B60040BD66 /* Streng.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Streng.h; sourceTree = "<group>"; };
 		D5AE31B71B2CE3B60040BD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5AE31BC1B2CE3B60040BD66 /* StrengTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StrengTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5AE31C11B2CE3B60040BD66 /* StrengTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengTests.swift; sourceTree = "<group>"; };
 		D5AE31C31B2CE3B60040BD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5AE31CC1B2CE3EF0040BD66 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		D5AE31CE1B2CE4050040BD66 /* CharacterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterExtensions.swift; sourceTree = "<group>"; };
+		D5AE31D01B2CE5060040BD66 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				D5AE31B51B2CE3B60040BD66 /* Streng.h */,
+				D5AE31CC1B2CE3EF0040BD66 /* StringExtensions.swift */,
+				D5AE31CE1B2CE4050040BD66 /* CharacterExtensions.swift */,
 				D5AE31B71B2CE3B60040BD66 /* Info.plist */,
 			);
 			path = Streng;
@@ -80,7 +86,7 @@
 		D5AE31C01B2CE3B60040BD66 /* StrengTests */ = {
 			isa = PBXGroup;
 			children = (
-				D5AE31C11B2CE3B60040BD66 /* StrengTests.swift */,
+				D5AE31D01B2CE5060040BD66 /* StringTests.swift */,
 				D5AE31C31B2CE3B60040BD66 /* Info.plist */,
 			);
 			path = StrengTests;
@@ -142,6 +148,7 @@
 		D5AE31A91B2CE3B60040BD66 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Translusion;
 				TargetAttributes = {
@@ -193,6 +200,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5AE31CD1B2CE3EF0040BD66 /* StringExtensions.swift in Sources */,
+				D5AE31CF1B2CE4050040BD66 /* CharacterExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5AE31C21B2CE3B60040BD66 /* StrengTests.swift in Sources */,
+				D5AE31D11B2CE5060040BD66 /* StringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +311,7 @@
 		D5AE31C71B2CE3B60040BD66 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -314,12 +324,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.translusion.Streng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		D5AE31C81B2CE3B60040BD66 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
