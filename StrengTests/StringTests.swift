@@ -14,44 +14,44 @@ class StringTests: XCTestCase {
     
     
     func testIsHexSimple() {
-        XCTAssert("0".isHex)
-        XCTAssert("1".isHex)
-        XCTAssert("a".isHex)
-        XCTAssert("b".isHex)
-        XCTAssertFalse("x".isHex)
-        XCTAssertFalse("y".isHex)
-        XCTAssertFalse("hello world".isHex)
-        XCTAssert("0ff".isHex)
-        XCTAssert("f1".isHex)
-        XCTAssert("af2d".isHex)
-        XCTAssert("A98fA9".isHex)
-        XCTAssert("01".isHex)
-        XCTAssert("120".isHex)
-        XCTAssert("991".isHex)
-        XCTAssert("123456".isHex)
-        XCTAssert("53234".isHex)
+        XCTAssert(isHex("0"))
+        XCTAssert(isHex("1"))
+        XCTAssert(isHex("a"))
+        XCTAssert(isHex("b"))
+        XCTAssertFalse(isHex("x"))
+        XCTAssertFalse(isHex("y"))
+        XCTAssertFalse(isHex("hello world"))
+        XCTAssert(isHex("0ff"))
+        XCTAssert(isHex("f1"))
+        XCTAssert(isHex("af2d"))
+        XCTAssert(isHex("A98fA9"))
+        XCTAssert(isHex("01"))
+        XCTAssert(isHex("120"))
+        XCTAssert(isHex("991"))
+        XCTAssert(isHex("123456"))
+        XCTAssert(isHex("53234"))
     }
     
     func testIsDigitSimple() {
-        XCTAssert("0".isInt)
-        XCTAssert("1".isInt)
-        XCTAssertFalse("a".isInt)
-        XCTAssertFalse("b".isInt)
-        XCTAssertFalse("x".isInt)
-        XCTAssertFalse("y".isInt)
-        XCTAssertFalse("hello world".isInt)
-        XCTAssertFalse("0ff".isInt)
-        XCTAssertFalse("f1".isInt)
-        XCTAssertFalse("af2d".isInt)
-        XCTAssertFalse("A98fA9".isInt)
-        XCTAssert("01".isInt)
-        XCTAssert("120".isInt)
-        XCTAssert("991".isInt)
-        XCTAssert("123456".isInt)
-        XCTAssert("53234".isInt)
+        XCTAssert(isInt("0"))
+        XCTAssert(isInt("1"))
+        XCTAssertFalse(isInt("a"))
+        XCTAssertFalse(isInt("b"))
+        XCTAssertFalse(isInt("x"))
+        XCTAssertFalse(isInt("y"))
+        XCTAssertFalse(isInt("hello world"))
+        XCTAssertFalse(isInt("0ff"))
+        XCTAssertFalse(isInt("f1"))
+        XCTAssertFalse(isInt("af2d"))
+        XCTAssertFalse(isInt("A98fA9"))
+        XCTAssert(isInt("01"))
+        XCTAssert(isInt("120"))
+        XCTAssert(isInt("991"))
+        XCTAssert(isInt("123456"))
+        XCTAssert(isInt("53234"))
     }
     
-    func testIndexOf() {
+    func testRangeOf() {
         struct TestData {
             var needle: String
             var haystack: String
@@ -66,7 +66,7 @@ class StringTests: XCTestCase {
 
         {
             guard let range = td.haystack.rangeOf(td.needle),
-                      index = td.haystack.indexOf(td.needle) else {
+                      index = td.haystack.search(td.needle) else {
                 XCTFail("Did not find '\(td.needle)' in '\(td.haystack)'")
                 continue
             }
@@ -84,6 +84,30 @@ class StringTests: XCTestCase {
         XCTAssertEqual("batman and robin".split(" and "), ["batman", "robin"])
         XCTAssertEqual("1sep2sep3sep4".split("sep"), ["1", "2", "3", "4"])
         XCTAssertEqual("1sep2sep3sep4sep".split("sep"), ["1", "2", "3", "4"])
+    }
+    
+    func testRSearch() {
+        let s1 = "abcdefg"
+        XCTAssertEqual(s1[s1.rsearch("efg")!], Character("e"))
+        let s2 = "ab12ab34"
+        let i2 = s2.rsearch("ab")!
+        XCTAssert(s2[i2..<s2.endIndex].hasPrefix("ab34"))
+    }
+    
+    func testSearch() {
+        let s1 = "abcdefg"
+        XCTAssertEqual(s1[s1.search("efg")!], Character("e"))
+        let s2 = "ab12ab34"
+        let i2 = s2.search("ab")!
+        XCTAssert(s2[i2..<s2.endIndex].hasPrefix("ab12"))
+    }
+    
+    func testPredicateSearch() {
+        let numbers = "one two three four five"
+        let i = numbers.search(isWhitespace)!
+        XCTAssertEqual(numbers[numbers.startIndex..<i], "one")
+        let j = numbers.rsearch(isWhitespace)!
+        XCTAssertEqual(numbers[j.successor()..<numbers.endIndex], "five")
     }
     
 }
