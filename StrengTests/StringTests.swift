@@ -102,12 +102,20 @@ class StringTests: XCTestCase {
         XCTAssert(s2[i2..<s2.endIndex].hasPrefix("ab12"))
     }
     
-    func testPredicateSearch() {
+    func testPredicateSearchWhitespace() {
         let numbers = "one two three four five"
         let i = numbers.search(isWhitespace)!
         XCTAssertEqual(numbers[numbers.startIndex..<i], "one")
         let j = numbers.rsearch(isWhitespace)!
         XCTAssertEqual(numbers[j.successor()..<numbers.endIndex], "five")
+
+    }
+    
+    func testPredicateSearchHex() {
+        let hex = "ggggg01abgggg"
+        let i = hex.search(isHex)!
+        let j = hex.rsearch(isHex)!
+        XCTAssertEqual(hex[i...j], "01ab")
     }
     
 }
