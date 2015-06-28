@@ -118,4 +118,24 @@ class StringTests: XCTestCase {
         XCTAssertEqual(hex[i...j], "01ab")
     }
     
+    func testRangeOfWord() {
+        var w = "one two three four"
+        let r = w.rangeOfWord(w.startIndex)
+        XCTAssertEqual(w[r], "one")
+        var i = advance(w.startIndex, 5)
+        XCTAssertEqual(w[w.rangeOfWord(i)], "two")
+        XCTAssertEqual(w[w.rangeOfWord(i.successor())], "two")
+        i = advance(w.startIndex, 8)
+        XCTAssertEqual(w[w.rangeOfWord(i)], "three")
+        i = advance(w.startIndex, 17)
+        XCTAssertEqual(w[w.rangeOfWord(i)], "four")
+        
+        w = "wholeword"
+        i = w.startIndex
+        XCTAssertEqual(w[w.rangeOfWord(i)], "wholeword")
+        XCTAssertEqual(w[w.rangeOfWord(i.successor())], "wholeword")
+        i = w.endIndex.predecessor()
+        XCTAssertEqual(w[w.rangeOfWord(i)], "wholeword")
+    }
+    
 }

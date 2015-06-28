@@ -119,4 +119,13 @@ public extension String {
         
         return result
     }
+    
+    /// Assume caret is in the middle of a word, and we want to find the start and end index
+    /// of this word. The word boundaries is defined by a predicate, so it could be whitespace by
+    /// providing `isWhitespace` e.g.
+    func rangeOfWord(caret: Index, predicate: (Character)->Bool = isWhitespace) -> Range<Index> {
+        let i = self.rsearch(caret, predicate: predicate)?.successor() ?? startIndex
+        let j = self.search(caret, predicate: predicate) ?? endIndex
+        return Range(start: i, end: j)
+    }
 }
