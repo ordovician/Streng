@@ -97,7 +97,7 @@ public extension String {
     public func rangeOf(chars: String, start: Index) -> Range<Index>? {
         let len = chars.characters.count
         if let i = search(chars, start: start) {
-            return Range(start: i, end: advance(i, len))
+            return Range(start: i, end: i.advancedBy(len))
         }
         
         return nil
@@ -108,7 +108,7 @@ public extension String {
         var result: [String] = []
         var i = startIndex
         repeat {
-            guard var range = self.rangeOf(separator, start: i) else {
+            guard let range = self.rangeOf(separator, start: i) else {
                 result.append(self[i..<endIndex])
                 break
             }

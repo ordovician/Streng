@@ -122,12 +122,12 @@ class StringTests: XCTestCase {
         var w = "one two three four"
         let r = w.rangeOfWord(w.startIndex)
         XCTAssertEqual(w[r], "one")
-        var i = advance(w.startIndex, 5)
+        var i = w.startIndex.advancedBy(5)
         XCTAssertEqual(w[w.rangeOfWord(i)], "two")
         XCTAssertEqual(w[w.rangeOfWord(i.successor())], "two")
-        i = advance(w.startIndex, 8)
+        i = w.startIndex.advancedBy(8)
         XCTAssertEqual(w[w.rangeOfWord(i)], "three")
-        i = advance(w.startIndex, 17)
+        i = w.startIndex.advancedBy(17)
         XCTAssertEqual(w[w.rangeOfWord(i)], "four")
         
         w = "wholeword"

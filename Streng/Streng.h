@@ -2,7 +2,7 @@
 //  Streng.h
 //  Streng
 //
-//  Created by Erik Engheim on 14/06/15.
+//  Created by Erik Engheim on 05/10/15.
 //  Copyright © 2015 Translusion. All rights reserved.
 //
 

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D5AE31B11B2CE3B60040BD66"
+               BlueprintIdentifier = "D533BF281BC2BC50001FD5A7"
                BuildableName = "Streng.framework"
                BlueprintName = "Streng"
                ReferencedContainer = "container:Streng.xcodeproj">
@@ -23,16 +23,16 @@
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D5AE31BB1B2CE3B60040BD66"
+               BlueprintIdentifier = "D533BF321BC2BC50001FD5A7"
                BuildableName = "StrengTests.xctest"
                BlueprintName = "StrengTests"
                ReferencedContainer = "container:Streng.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D5AE31B11B2CE3B60040BD66"
+            BlueprintIdentifier = "D533BF281BC2BC50001FD5A7"
             BuildableName = "Streng.framework"
             BlueprintName = "Streng"
             ReferencedContainer = "container:Streng.xcodeproj">
@@ -52,11 +52,11 @@
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
@@ -64,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D5AE31B11B2CE3B60040BD66"
+            BlueprintIdentifier = "D533BF281BC2BC50001FD5A7"
             BuildableName = "Streng.framework"
             BlueprintName = "Streng"
             ReferencedContainer = "container:Streng.xcodeproj">
@@ -74,15 +74,15 @@
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D5AE31B11B2CE3B60040BD66"
+            BlueprintIdentifier = "D533BF281BC2BC50001FD5A7"
             BuildableName = "Streng.framework"
             BlueprintName = "Streng"
             ReferencedContainer = "container:Streng.xcodeproj">
