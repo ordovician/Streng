@@ -33,6 +33,7 @@
 		D533BF3A1BC2BC50001FD5A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D533BF431BC2BE59001FD5A7 /* CharacterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterExtensions.swift; sourceTree = "<group>"; };
 		D533BF441BC2BE59001FD5A7 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		D533BF471BC2C16D001FD5A7 /* StringPlay.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StringPlay.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +76,7 @@
 		D533BF2B1BC2BC50001FD5A7 /* Streng */ = {
 			isa = PBXGroup;
 			children = (
+				D533BF471BC2C16D001FD5A7 /* StringPlay.playground */,
 				D533BF431BC2BE59001FD5A7 /* CharacterExtensions.swift */,
 				D533BF441BC2BE59001FD5A7 /* StringExtensions.swift */,
 				D533BF2C1BC2BC50001FD5A7 /* Streng.h */,
