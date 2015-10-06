@@ -11,4 +11,6 @@ num.characters.reduce("") { result, ch in
     return result + String(ch)
 }
 
-//let xs: [Character] = num.characters.filter(isDigit).map(String.init)
+
+let xs = num.characters.filter(isDigit).map { String($0) }
+xs.joinWithSeparator("")
