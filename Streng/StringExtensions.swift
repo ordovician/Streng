@@ -24,6 +24,28 @@ public func isInt(string: String) -> Bool {
     return true
 }
 
+/// Check if string is valid base64 string. That means it contains
+/// A-Z, a-z, 1-0, + or / and ends with one or two = symbols
+public func isBase64(string: String) -> Bool {
+    var charCountAfterTerminator: Int = 0
+    var foundTerminator = false
+    for ch in string.characters {
+        if foundTerminator {
+            charCountAfterTerminator += 1
+            if charCountAfterTerminator >= 3 || ch != "=" {
+                return false
+            }
+        } else if ch == "=" {
+            charCountAfterTerminator = 1
+            foundTerminator = true
+        } else if !isBase64(ch) {
+            return false
+        }
+    }
+    return true
+}
+
+
 /// Methods that ought to be supplemented as standard to the String class
 public extension String {
 

@@ -10,8 +10,26 @@ import Foundation
 import XCTest
 import Streng
 
+class Base64Tests: XCTestCase {
+    func testValidOnes() {
+        XCTAssert(isBase64("MTAuNDcuMi40MzE="))
+        XCTAssert(isBase64("MTAuNDcuMi40MzI="))
+        XCTAssert(isBase64("MTAuNDcuMi40MzM="))
+        XCTAssert(isBase64("MTAuNDcuMi40MzY="))
+        XCTAssert(isBase64("MTAuNDcuMi40Mzc="))
+        XCTAssert(isBase64("+/AuNDcuMi40Mz=="))
+    }
+
+    func testInvalidOnes() {
+        XCTAssertFalse(isBase64("=78"))
+        XCTAssertFalse(isBase64("hjdls==ds"))
+        XCTAssertFalse(isBase64("hlsd4d==="))
+        XCTAssertFalse(isBase64("1234$"))
+        XCTAssertFalse(isBase64("yMsnU=1"))
+    }
+}
+
 class StringTests: XCTestCase {
-    
     
     func testIsHexSimple() {
         XCTAssert(isHex("0"))

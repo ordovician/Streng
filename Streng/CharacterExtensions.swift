@@ -46,3 +46,8 @@ public func isWhitespace(char: Character) -> Bool {
     }
     return false
 }
+
+/// Does character one of the characters used for base64 encoding?
+public func isBase64(char: Character) -> Bool {
+    return isDigit(char) || char >= "A" && char <= "Z" || char >= "a" && char <= "z" || char == "+" || char == "/"
+}
