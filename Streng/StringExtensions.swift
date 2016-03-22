@@ -119,7 +119,7 @@ public extension String {
     public func rangeOf(chars: String, start: Index) -> Range<Index>? {
         let len = chars.characters.count
         if let i = search(chars, start: start) {
-            return Range(start: i, end: i.advancedBy(len))
+            return i..<i.advancedBy(len)
         }
         
         return nil
@@ -148,6 +148,6 @@ public extension String {
     func rangeOfWord(caret: Index, predicate: (Character)->Bool = isWhitespace) -> Range<Index> {
         let i = self.rsearch(caret, predicate: predicate)?.successor() ?? startIndex
         let j = self.search(caret, predicate: predicate) ?? endIndex
-        return Range(start: i, end: j)
+        return i..<j
     }
 }

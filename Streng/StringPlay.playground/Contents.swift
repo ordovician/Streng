@@ -11,6 +11,9 @@ num.characters.reduce("") { result, ch in
     return result + String(ch)
 }
 
+let bla = "erik:foo:dsd".split(":")
+bla
+
 
 let xs = num.characters.filter(isDigit).map { String($0) }
 xs.joinWithSeparator("")
