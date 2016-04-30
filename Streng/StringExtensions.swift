@@ -150,4 +150,17 @@ public extension String {
         let j = self.search(caret, predicate: predicate) ?? endIndex
         return i..<j
     }
+    
+    /// Obfuscate string by changing every byte with function `f` and storing result as base64 encoding
+    func obfuscated(f: UInt8->UInt8) -> String {
+        let bytes = Array(self.utf8).map(f)
+        return base64encode(bytes)
+    }
+    
+    /// Deobfuscate base64 decode transform each byte with f and return result as UTF8 encoded
+    func deobfuscate(f: UInt8->UInt8) -> String? {
+        let inbytes = base64decode(self)
+        let outbytes = inbytes.map { bytes in bytes.map(f) }
+        return outbytes.flatMap { bytes in String(bytes: bytes, encoding: NSUTF8StringEncoding) }
+    }
 }
