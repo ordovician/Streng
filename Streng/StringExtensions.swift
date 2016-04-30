@@ -45,6 +45,19 @@ public func isBase64(string: String) -> Bool {
     return true
 }
 
+// TODO: Needs testing
+/// Do an in place replacement of all `strings` found in files in `paths` replacing them with the string
+/// produced with `replacer`. Warning don't do this on files unless they have been backed up.
+func replace(strings: [String], inFilePaths paths: [String], using replacer: String->String) throws {
+    for path in paths {
+        var text = try String(contentsOfFile: path)
+        for needle in strings {
+            text = text.stringByReplacingOccurrencesOfString(needle, withString: replacer(needle))
+            try text.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
+        }
+    }
+}
+
 
 /// Methods that ought to be supplemented as standard to the String class
 public extension String {
