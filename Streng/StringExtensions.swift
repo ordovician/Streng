@@ -48,7 +48,7 @@ public func isBase64(string: String) -> Bool {
 // TODO: Needs testing
 /// Do an in place replacement of all `strings` found in files in `paths` replacing them with the string
 /// produced with `replacer`. Warning don't do this on files unless they have been backed up.
-func replace(strings: [String], inFilePaths paths: [String], using replacer: String->String) throws {
+public func replace(strings: [String], inFilePaths paths: [String], using replacer: String->String) throws {
     for path in paths {
         var text = try String(contentsOfFile: path)
         for needle in strings {
@@ -139,7 +139,7 @@ public extension String {
     }
     
     /// Split string into an array of strings using separator. If we get no
-    func split(separator: String) -> [String] {
+    public func split(separator: String) -> [String] {
         var result: [String] = []
         var i = startIndex
         repeat {
@@ -158,20 +158,20 @@ public extension String {
     /// Assume caret is in the middle of a word, and we want to find the start and end index
     /// of this word. The word boundaries is defined by a predicate, so it could be whitespace by
     /// providing `isWhitespace` e.g.
-    func rangeOfWord(caret: Index, predicate: (Character)->Bool = isWhitespace) -> Range<Index> {
+    public func rangeOfWord(caret: Index, predicate: (Character)->Bool = isWhitespace) -> Range<Index> {
         let i = self.rsearch(caret, predicate: predicate)?.successor() ?? startIndex
         let j = self.search(caret, predicate: predicate) ?? endIndex
         return i..<j
     }
     
     /// Obfuscate string by changing every byte with function `f` and storing result as base64 encoding
-    func obfuscated(f: UInt8->UInt8) -> String {
+    public func obfuscated(f: UInt8->UInt8) -> String {
         let bytes = Array(self.utf8).map(f)
         return base64encode(bytes)
     }
     
     /// Deobfuscate base64 decode transform each byte with f and return result as UTF8 encoded
-    func deobfuscate(f: UInt8->UInt8) -> String? {
+    public func deobfuscate(f: UInt8->UInt8) -> String? {
         let inbytes = base64decode(self)
         let outbytes = inbytes.map { bytes in bytes.map(f) }
         return outbytes.flatMap { bytes in String(bytes: bytes, encoding: NSUTF8StringEncoding) }
