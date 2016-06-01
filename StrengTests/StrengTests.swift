@@ -27,6 +27,13 @@ class Base64Tests: XCTestCase {
         XCTAssertFalse(isBase64("1234$"))
         XCTAssertFalse(isBase64("yMsnU=1"))
     }
+    
+    func testEncodeDecode() {
+        XCTAssertEqual(base64decode(base64encode([1, 2, 3]))!, [1, 2, 3])
+        XCTAssertEqual(base64decode(base64encode([3, 2, 1]))!, [3, 2, 1])
+        let helloData = "hello world".dataUsingEncoding(NSUTF8StringEncoding)!
+        XCTAssertEqual(String(bytes: base64decode(base64encode(helloData.bytes))!, encoding: NSUTF8StringEncoding), "hello world")
+    }
 }
 
 class StringTests: XCTestCase {
